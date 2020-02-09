@@ -1,20 +1,21 @@
 ---
 # Display name
-name: Nelson Bighetti
+name: Miguel Rivera-Lanas
 
 # Username (this should match the folder name)
 authors:
-- admin
+- rivera-lanasm
+# admin
 
 # Is this the primary user of the site?
 superuser: true
 
 # Role/position
-role: Professor of Artificial Intelligence
+role: Data Scientist
 
 # Organizations/Affiliations
 organizations:
-- name: Stanford University
+- name: Point72; Discretionary Long/Short Equity Platform
   url: ""
 
 # Short bio (displayed in user profile at end of posts)

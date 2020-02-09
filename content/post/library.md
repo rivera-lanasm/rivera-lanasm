@@ -38,17 +38,24 @@ Stanford ML;
 J Kun, math in computer science; 
 Bayes stastical rethinking;
 teachyourselfcs.com/; 
-Berkely CS 61 SICP
+- Berkely CS 61 SICP
 
-**Guides:**
-Neural Networks Intro; 
-Pytorch
-Data science workflow
-scala for spark
-data formats: (ORC vs. Parquet, Avro & Parquet)
-Airflow and Dask (or celery)
-running airflow inside kubernetes
-Airflow at Airbnb
+**Guides:** <br>
+Hugo 
+- https://www.arnoudplantinga.nl/post/getting-started/#introduce-yourself
+Neural Networks Intro; <br> 
+Data science workflow <br>
+Spark <br>
+Dask
+- http://matthewrocklin.com/ 
+- https://www.capitalone.com/tech/machine-learning/dask-and-rapids-data-science-and-machine-learning-at-capital-one/
+
+data formats: (ORC vs. Parquet, Avro & Parquet) <br>
+Airflow and Dask (or celery)<br>
+Running airflow inside kubernetes<br>
+
+**Airflow**
+
 
 
 **Coding Projects:**
