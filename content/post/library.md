@@ -28,39 +28,17 @@ image:
 projects: []
 ---
 
-**Full Courses:**
-functional programming: EdX
-Linear methods: CMU, Cosma 
-EdX 600.2
-Statistics & Linear Algebra; Harvard
-Elements of Statistical Learning; 
-Stanford ML; 
-J Kun, math in computer science; 
-Bayes stastical rethinking;
-teachyourselfcs.com/; 
-- Berkely CS 61 SICP
-
 **Guides:** <br>
 Hugo 
 - https://www.arnoudplantinga.nl/post/getting-started/#introduce-yourself
+
 Neural Networks Intro; <br> 
-Data science workflow <br>
-Spark <br>
+
+Spark 
+
 Dask
 - http://matthewrocklin.com/ 
 - https://www.capitalone.com/tech/machine-learning/dask-and-rapids-data-science-and-machine-learning-at-capital-one/
 
-data formats: (ORC vs. Parquet, Avro & Parquet) <br>
-Airflow and Dask (or celery)<br>
-Running airflow inside kubernetes<br>
-
-**Airflow**
-
-
-
-**Coding Projects:**
-Riddler; 
-project euler;
-Hackerrank (exercism); 
 
 
