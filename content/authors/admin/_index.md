@@ -19,7 +19,7 @@ organizations:
   url: ""
 
 # Short bio (displayed in user profile at end of posts)
-bio: My research interests include distributed robotics, mobile computing and programmable matter.
+bio: Currently working at a hedge fund exploring applications of machine learning and big data. Currently interested in computational statistics, machine learning, and political theory and history.
 
 interests:
 - Economics

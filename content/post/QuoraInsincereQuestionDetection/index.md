@@ -2,7 +2,7 @@
 # Documentation: https://sourcethemes.com/academic/docs/managing-content/
 
 title: "Quora Insincere Question Detection"
-subtitle: "halllo"
+subtitle: "I always lie."
 summary: "hello"
 authors: []
 tags: [tensorflow2, anomoly detection]

@@ -25,20 +25,28 @@ date_format = "Jan 2006"
   date_start = "2019-09-01"
   date_end = ""
   description = """
-  Responsibilities include:
   
-  * Analysing
-  * Modelling
-  * Deploying
+  * Currently working with a team of developers and investment analysts at Point72, focused on researching applications of big data and machine learning to equity investment opportunity discovery. standardize how data science is conducted with investment teams
+
   """
 
 [[experience]]
-  title = "Research Associate"
+  title = "Research Associate; Fixed Income"
   company = "AllianceBernstein"
   company_url = ""
   location = "New York, NY"
   date_start = "2017-07-01"
   date_end = "2019-08-01"
-  description = """Taught electronic engineering and researched semiconductor physics."""
+  description = """
+  
+  * **EM Sovereign Desk:**
+  * Conducted monthly research focused on tracking/forecasting fiscal deficits, dollar-denominated debt balances, and trade & investment balances.
+ 
+  * **US High Yield and Investment Grade Desk:**
+  * Maintained output and delivered monthly updates from quantitative models to investment teams
+  * Developed and maintained a pipeline for extracting liquidity signals from order-book data and developed dashboards utilized by traders. 
+
+  """
+
 
 +++
