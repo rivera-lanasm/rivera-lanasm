@@ -26,7 +26,15 @@ date_format = "Jan 2006"
   date_end = ""
   description = """
   
-  * Currently working with a team of developers and investment analysts at Point72, focused on researching applications of big data and machine learning to equity investment opportunity discovery. standardize how data science is conducted with investment teams
+* Research applications and best practices for data science and engineering.
+Apply large scale/alternative data using ETL processes and statistical
+methods to improve the equity investment process.
+* Use ​**Pyspark** to analyze unstructured columnar data, like credit-card
+transactions and website clickstream datasets. Use **SpaCy** for document
+pre-processing and information extraction from streaming text data.
+* Use **Airflow, Jinja and AWS S3/SQS/Lambda** to build and maintain data
+pipelines. ​ 
+* **Dash** to create web based dashboards for end users.
 
   """
 
@@ -39,12 +47,17 @@ date_format = "Jan 2006"
   date_end = "2019-08-01"
   description = """
   
-  * **EM Sovereign Desk:**
-  * Conducted monthly research focused on tracking/forecasting fiscal deficits, dollar-denominated debt balances, and trade & investment balances.
- 
-  * **US High Yield and Investment Grade Desk:**
-  * Maintained output and delivered monthly updates from quantitative models to investment teams
-  * Developed and maintained a pipeline for extracting liquidity signals from order-book data and developed dashboards utilized by traders. 
+* Monthly projects focused on tracking fiscal deficits, debt balances, and trade
+balances for emerging market countries issuing sovereign debt. Automated
+ingestion and high level analysis using ​R Markdown.
+* Maintained output and delivered monthly updates from GAM model (​ R,
+mgcv) used for explaining bond price dispersion.
+* Developed and maintained ETL using ​ MySQL for extracting liquidity
+signals from live order-book data and developed ​ Jupyter Notebook
+dashboards utilized by traders.
+* Wrote a pipeline using ​ MySQL and ​ BeautifulSoup to web-scrape and
+analyze online resources for GHG emissions data from municipal utilities
+for an environmental scorecard used by ESG impact analysis. 
 
   """
 

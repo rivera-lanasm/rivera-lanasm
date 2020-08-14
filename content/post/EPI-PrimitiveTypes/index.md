@@ -33,10 +33,7 @@ This series of posts explores the problems, concepts and my solutions <br>
 I'll be posting the descriptions of the solutions as well as the results from the test suite the book authors provide <br>
 also will be posting additional problems, wherever relevant, pulled from other places.
 
-
-## ================================================================
-## =============   PRIMITIVE TYPES ================================
-## ================================================================
+## Part 1: Primitive Types
 
 This section primarily focuses on bitwise operations. 
 The key concepts addressed are:
@@ -50,10 +47,8 @@ The key concepts addressed are:
 
 [Other Bitwise Operation Problems](https://medium.com/@codingfreak/bit-manipulation-interview-questions-and-practice-problems-27c0e71412e7)
 
-## ======================================================
-## =============  Parity ================================
-# 
-#? ======================================================
+##  Parity 
+ ```
 def parity(val: int) -> int:
 
     par = 0
@@ -63,7 +58,7 @@ def parity(val: int) -> int:
         val >>= 1
     return par
 
-"""
+```
 Time complexity --> O(n), n is size of binary word 
 procedure must conduct iterations bit by bit
 
@@ -76,19 +71,17 @@ flipping the par value only as long as some positive bits remain
 
 New time complexity --> O(k+1), k --> number of positive bits
 
-
 note, x&~(x-1)
-"""
 
-def parity_1(val: int) -> int:
-
+```
+def parity(val: int) -> int:
     par = 0
     while val:
         par ^= 1
         val &= (val-1)
     return par
 
-"""
+```
 computing parity for very large number of bin words
 1) processing mult bits at once
 2) caching results in an array based lookup table 
@@ -99,8 +92,7 @@ parity of every 64 bit integer --> 2^64 bits of storage
 
 cache --> <0,1,1,0> --> parities of <(0,0), (01), (1,0), (1,1)>
 
-"""
-
+```
 def parity_2(val: int) -> int:
 
     lookup = {v:parity_1(v) for v in range(0xFFFF+1) }
@@ -115,24 +107,16 @@ def parity_2(val: int) -> int:
     g3 = lookup[val>>(mask_size) & bit_mask]
     g4 = lookup[val & bit_mask]
     return g1^g2^g3^g4
-
+```
 
 
 """
 Associativity
 """
 
-#? ======================================================
-#? =============  Swapping Bits =========================
-#? ======================================================
+
+## === === === === === === === === === === 
+## Swapping Bits 
 
 
-
-
-if __name__ == "__main__":
-    val = int('1011000000000110011', 2)
-    print(val)
-    p = parity_2(val = val)
-    print("=================")
-    print(p)
 
