@@ -1,5 +1,5 @@
 ---
-title: "Weekupdate 2020Nov30"
+title: "Reading List 2020 Nov 30"
 subtitle: ""
 date: 2020-11-30T21:52:22-05:00
 draft: false

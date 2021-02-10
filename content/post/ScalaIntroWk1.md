@@ -2,7 +2,7 @@
 title: "Scala Intro Week 1"
 subtitle: ""
 date: 2021-01-31T22:59:35-05:00
-draft: true
+draft: false
 ---
 
 The following series of notes and related resources were compiled while taking Martin Odersky's Coursera course, [Functional Programming Principles in Scala](https://www.coursera.org/learn/progfun1/home/welcome). 
