@@ -2,7 +2,7 @@
 title: "Reading List 2020 Nov 30"
 subtitle: ""
 date: 2020-11-30T21:52:22-05:00
-draft: false
+draft: true
 tags: []
 ---
 
@@ -22,11 +22,14 @@ https://www.youtube.com/watch?v=yEYPf44rS2U
 
 
 ### Scala Language & JVM Topics
+- https://www.freecodecamp.org/news/jvm-tutorial-java-virtual-machine-architecture-explained-for-beginners/
+- https://www.baeldung.com/jvm-vs-jre-vs-jdk
 - https://tpolecat.github.io/2014/05/09/return.html
 - https://www.manning.com/books/sbt-in-action
 - https://www.toptal.com/scala/scala-bytecode-and-the-jvm
 - https://dzone.com/articles/jvm-architecture-explained
-    - 
+- https://medium.com/@alessandroheres/scala-internals-and-intermediates-483e654bb6d2
+- https://medium.com/@kretziek/the-future-of-the-jvm-java-scala-and-kotlin-846c6f2f2491
 
 - https://www.47deg.com/blog/swift-scala/
 - https://towardsdatascience.com/scala-for-data-science-engineering-part-1-6a0a5738d7b0
