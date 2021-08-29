@@ -11,20 +11,21 @@ authors:
 superuser: true
 
 # Role/position
-role: Data Scientist
+role: Data Scientist / Engineer
 
 # Organizations/Affiliations
 organizations:
-- name: Point72; Discretionary Long/Short Equity Platform
+- name: Point72
   url: ""
 
 # Short bio (displayed in user profile at end of posts)
-bio: Currently working at a hedge fund exploring applications of machine learning and big data. Currently interested in computational statistics, machine learning, and political theory and history.
+bio: Currently a Data Scientist/Engineer at a hedge fund. Primarily focused on empirical methods to study quantitative and social effects of disinformation propagation, content moderation systems, and computational social science generally.
 
 interests:
-- Economics
-- Computational Statistics/Probabilistic Modeling
-- Investigative Journalism
+- Measuring AI/ML Fairness and Bias
+- Statistics / Probabilistic Modeling
+- Computational Sociology
+- Political Extremism, Propogation of Disinformation
 
 education:
   courses:
@@ -63,5 +64,10 @@ email: ""
 # - Visitors
 ---
 
-A blog for projects revolving around concepts from probability, machine learning, and economics
+AI/ML directed automated systems are increasingly embedded in, reflective of, and consequential to the operation of social and political systems. 
+
+On the one hand, this trend broadens the methods researchers can use to understand social trends with better granularity, high frequency, at at lower cost. 
+On the other, researchers should be actively investigating the feedback loops between social and technical systems that, left unchecked, have been demonstrated to systematically produce negative and inequitable social outcomes. 
+
+The aspects of these topics I pursue in this blog relate to NLP, political disinformation, and socio technical systems generally.
 

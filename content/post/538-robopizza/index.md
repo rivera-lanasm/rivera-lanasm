@@ -1,8 +1,8 @@
 ---
 # Documentation: https://sourcethemes.com/academic/docs/managing-content/
 
-title: "538 Robopizza"
-subtitle: ""
+title: "538 Riddler: Robopizza"
+subtitle: "(some parts still in progress)"
 summary: ""
 authors: []
 tags: []
@@ -27,44 +27,61 @@ image:
 #   Otherwise, set `projects = []`.
 projects: []
 ---
-## Riddler #1; What if Robots Cut Your Pizza?
 
-This Riddler puzzle is about cutting a circle at random points and understanding how many slices are likely to result. 
+This [Riddler puzzle](http://fivethirtyeight.com/features/what-if-robots-cut-your-pizza/) is about cutting a circle at random points and understanding how many slices are likely to result. 
 
-"At RoboPizza™, pies are cut by robots. When making each cut, a robot will **randomly (and independently) pick two points** on a pizza’s circumference, and then cut along the chord connecting them. If you order a pizza and specify that you want the robot to make exactly three cuts, **what is the expected number of pieces** your pie will have?" (my highlighting)
+"At RoboPizza™, pies are cut by robots. When making each cut, a robot will **randomly (and independently) pick two points onf a pizza’s circumference, and then cut along the chord connecting them**. If you order a pizza and specify that you want the robot to make exactly three cuts, **what is the expected number of pieces** your pie will have?" (my highlighting)
 
-I am borrowing the theory behind the solution from Northeastern professor of mechanical and industrial engineering, Laurent Lessard. Drawing from his post about [this same problem](https://laurentlessard.com/bookproofs/what-if-robots-cut-your-pizza/)
-
-#### =============================
+I am borrowing the theory behind the analytic solution from a similar post by Northeastern professor of mechanical and industrial engineering, Laurent Lessard. Link here to his post about [this same question](https://laurentlessard.com/bookproofs/what-if-robots-cut-your-pizza/)
 
 
-## Reframing the Problem 
+### Reframing the Problem 
 
-Lessard reframes the question using Euler's Formula for Simple Planar Graphs. A graph G is planar if it can be drawn in the plane in such a way that no two edges meet each other except at a vertex to which they are both incident, i.e. such that no two edges cross in the plane. 
+Lessard's key insight for my approach was to reframe the question using Euler's Formula for Simple Planar Graphs. A graph G is planar if it can be drawn in the plane in such a way that no two edges meet each other except at a vertex to which they are both incident, i.e. such that no two edges cross in the plane. 
 
-Euler's formula relates the number of vertices, edges and faces (including the "infinite" outside face) of a planar graph. If n, m, and f denome the number of vertices, edges, and faces respectively of a connected planar graph, then:
+Euler's formula relates the number of vertices, edges and faces (including the "infinite" outside face) of a planar graph. If V, E, and F denote the number of vertices, edges, and faces respectively of a connected planar graph, then:
 
-$ n - m + f = 2 $
+$ V - E + F = 2 $
 
-Given some slices across the pizza resulting in a circle with `n` chords, `p` intersections and `s` regions (or slices), Lassard applies Euler's formula as follows:
+Lassard applies Euler's formula as follows to express the number of vertices, edges and faces of the resulting planar graph in terms of the number of cuts across the pizza, `n`, `p` intersections and `s` regions (or pizza slices):
 - $V = 2n + p$
-- $E = 3n + 2p + 1$
-- $S = n + p + 1$ 
-- $F = S + 1 (inf. face)$
-$n$ is given by the problem, so we're only solving for p, the number of intersections given $n$ chords.
+  - Number of vertices equal to 2 times number of cuts across pizza (the vertices along the circumpherence) plus the number of intersections among unique pairs of cuts (p)
+- $E = 3n + 2p $
+  - Each internal intersection adds an edge to the graph, as well as the arcs between cuts along the circumference.
+- $F = s + 1 (inf. face)$
+  - The number of faces is equal to the number of distinct regions in the circle plus the outside (inf.) face
+Substituting this all into Euler's formula:
+  - $ V - E + F = 2 $
+  - $ (2n + p) - (3n + 2p) + (s + 1) = 2 $
+  - $ -n - p + s + 1 = 2 $
+  - $ s = p + (n + 1) $  
+
+$n$ is given by the problem, so we're only solving for $p$, the number of intersections given $n$ chords (or cuts across the pizza)
 
 **References:**
 [Graph Planarity](http://www.personal.kent.edu/~rmuhamma/GraphTheory/MyGraphTheory/planarity.html)
 
-#### ================================
 
-## Estimating the number of intersections given n "randomly" drawn chords
+## Estimating the Expected Intersections given N Randomly Drawn Chords
 
-Lessard introduces some notation I found quite useful to think about the problem, so will reiterate here. Given n chords drawn, the value $X_{i,j}$ is equal to 1 if chords $i$ and $j$ intersect, and 0 otherwise. $C$ is the set of all pairs $(i,j)$. 
+Given $n$ chords drawn, the random variable or event $X_{i,j}$ is equal to 1 if chords $i$ and $j$ intersect, and 0 otherwise. $C$ is the set of all pairs $(i,j)$. 
 
-- The values $X_{i,j}$ are not mutually independent. This can be shown by imagining a circle with three chords, $a, b, c$, two ($a, b$) of which are parallel. If $X_{a,c} = 1$, it must be the case that $X_{i,j}$. However, lack of independence does not affect linearity of expectations. 
-- By symmetry, each $E[X_{i,j}]$ is equal and equivalent to 1/3.
+The outcomes of values c are not mutually independent. This can be shown by imagining a circle with three chords, $a, b, c$, two, $a$ and $b$, are parallel. If $X_{a,c} = 1$, it must be the case that $X_{b,c}$. 
+- However, importantly, lack of independence does not affect linearity of expectations
 
+To find the likelihood of a given event, $X_{i,j}$, we can draw on the wording of the problem statement: 
+> "randomly (and independently) pick two points on a pizza’s circumference, and then cut along the chord connecting them".
+This statement is important because it specifies the method for randomly selecting chords. Drawing out the distinct ways chords can be drawn in this way, you can show that the likelihood of intersection is 1/3. 
+
+Had the method here been specified differently, the outcome likelihood of intersection, and thus the outcome expected number of slices, would also be different. 
+  - I'll elaborate on this in the last section on **Bertrand's Paradox**
+
+
+**References:**
+[Linearity of Expectations](https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-042j-mathematics-for-computer-science-fall-2005/readings/ln14.pdf)
+
+
+### General Empirical Solution: 
 
 **Pizza cutting process in two stages:** 
 - First, assign $2n$ points along the circumference of the circle.
@@ -72,10 +89,44 @@ Lessard introduces some notation I found quite useful to think about the problem
 
 By enumerating the different possible ways of pairing points on a circle given an number of chords to be drawn, one can deduce the probability of acheiving between 0 and n choose 2 inctersections intersection. 
 
-This counting exercise becomes increasingly difficult as the number of chords involved increases, so Laurent introduces some general solutions. 
+This counting exercise becomes increasingly difficult as the number of chords involved increases, so I introduce here a simulation based method for estimating the number of resulting pizza slices:
+
+- First, 
+
+You can see the code for this [here]()
+
+### General Analytic Solution 
+
+Laurent draws a general solution for the expected number of intersections in a circle given n chords from a 1975 paper, [“The Distribution of Crossings of Chords Joining Pairs of 2n Points on a Circle”](https://www.ams.org/journals/mcom/1975-29-129/S0025-5718-1975-0366686-9/S0025-5718-1975-0366686-9.pdf), by John Riordan, who specialized in combinatorial analytics. 
+
+As an aside, the field this solution draws from, **Analytic Combinatorics**, aims to understand the asymptotic properties of structured combinatorial configurations, through an approach that bases itself extensively on analytic methods. Generating functions are the central objects of the theory
+[reference](https://lipn.univ-paris13.fr/~nicodeme/nablus14/nafiles/gentle.pdf)
+
+This generating function ahieved by the paper by Riordan yields a polynomial with coefficients describing "the number of ways of choosing n pairs of points among 2n  general points **such that there are k intersections**". 
+
+I implemented a set of Scala methods using this generating function to reach the analytic solutions for this question, as well as to compare against the empirical solutions I described above. 
+
+You can see the code for this [here]()
 
 
-##### =======================================
+**References:**
+[Ballot Numbers](http://www.math.uakron.edu/~cossey/636papers/hilton%20and%20pedersen.pdf)
+[Cataland Numbers](https://sms.math.nus.edu.sg/smsmedley/Vol-25-2/Catalan%20numbers%20(Wong%20Kar%20Lyle).pdf)
+[Catalan Numbers and Chord Intersection](https://math.stackexchange.com/questions/284512/proof-of-catalan-numbers-on-a-circle)
+
+
+### Results: Empirical vs. Analytic Solution
+
+see Scala code for implementing the empirical and analytic solutions [here](https://github.com/rivera-lanasm/RiddlerSolutions/tree/main/solutions/src/main/scala/robopizza)
+
+**Resulting Distributions of Chord Intersections from 3 Slices**
+![png](/img/robopizza_empirical_3slice.png)
+
+**Resulting Distributions of Chord Intersections from 6 Slices**
+
+
+**Resulting Distributions of Chord Intersections from 20 Slices**
+
 
 ### Aside: Bertrand's paradox: Assigning uniform/IID properties to simulated events
 
@@ -87,118 +138,3 @@ A key insight from Laurent above is the the approach to introducing randomness. 
 
 The question of properly specifying the process of randomly generating chords is related to **Bertrand's Paradox**.
 
-
-### Bertrand's Paradox: Probability that 2 chords intersect
-
-
-https://www.cut-the-knot.org/bertrand.shtml
-
-https://www.cut-the-knot.org/bertrand2.shtml
-
-
-
-
-###### ===================================
-
-### Analytic Solution 
-
-Laurent draws a general solution for the expected number of intersections in a circle given n chords from a 1975 paper, [“The Distribution of Crossings of Chords Joining Pairs of 2n Points on a Circle”](https://www.ams.org/journals/mcom/1975-29-129/S0025-5718-1975-0366686-9/S0025-5718-1975-0366686-9.pdf), by John Riordan, who specialized in combinatorial analytics. 
-
-As an aside, **Analytic Combinatorics** aims at predicting precisely the asymptotic properties of structured combinatorial configurations, through an approach that bases itself extensively on analytic methods. Generating functions are the central objects of the theory
-[reference](https://lipn.univ-paris13.fr/~nicodeme/nablus14/nafiles/gentle.pdf)
-
-The key takeaway, as Laurent points out, is the following generating function, Tn(x). 
-
-
-
-Riordan derives a generating function for this polynomial:
-
-This generating function yields a polynomial with coefficients describing "the number of ways of choosing n pairs of points among 2n  general points **such that there are k intersections**"
-
-
-### Ballot Problem and Catalan Numbers
-
-Laurant highlights that Riordan makes use of a ballot number, anm, in this generating function. Laurent offers the geometric  interpretation is that amn "is the number of “North-East” lattice paths from (0,0) to (n,m) that do not cross the diagonal points (i,i)".
-
-Pointing back to Riordan's generating function, Laurent points out that for each Tn(x), extracting the first coefficient, representing the number of ways of choosing n pairs among 2n general points such that there are 0 intersections, yields the **Catalan numbers**, which appear in a variety of combinatorial problems. 
-
-The ballot number here is central to determining the value of coefficients, so I thought it was worth devling more into exactly how to interpret it. I draw the following from [a paper by Peter Hilton and Jean Pedersen](http://www.math.uakron.edu/~cossey/636papers/hilton%20and%20pedersen.pdf)
-
-Starting with the binomial coefficient, (n r), the authors stress one particular interpretation: that of paths on a coordinate plane. A path is a sequence of points on a coordinate plane, where each point with positive integer coordinates.
-
-the authors show that the number of paths from (0,0) to (a,b) is equivalent to the binomial coefficient, (a+b, a). This simply means that given a coordinate (a,b), where a and b are positive integers, the path to (a,b) can be thought of set of steps, either along the x or y axis. The total number of paths is equivalent to the number of ways to assign the steps along the x-axis to the set of total steps, so can be phrased as the value (a+b a)
-
-
-[paper](https://sms.math.nus.edu.sg/smsmedley/Vol-25-2/Catalan%20numbers%20(Wong%20Kar%20Lyle).pdf)
-The ballot problem is 
-
-The connection drawn to Catalan numbers here is the observation in 1887 by French mathematician Desire Andre called the "Reflection Principle", which 
-
-
-Connecting to chord intersection problem to Catalan numbers, a related problem. 
-[post](https://math.stackexchange.com/questions/284512/proof-of-catalan-numbers-on-a-circle)
-
-
-Riordan genearlizes the ballot sequence solution, drawing on work done by Touchard, 
-
-
-
-
-##### =========================================== 
-
-
-
-
-```python
-import pandas as pd
-import numpy as np
-import seaborn as sns
-
-order_four_dist = pd.read_csv("distribution_order_4.csv", header=None).reset_index()
-order_four_dist.columns = ['intersections', 'likelihood']
-# incorporate into scala
-order_four_dist['regions'] = order_four_dist['intersections'] + 4 + 1
-```
-
-
-```python
-sns.barplot(x = "regions", y="likelihood", data=order_four_dist, color="steelblue")
-```
-
-
-
-![png](/img/538_robopizza_pic0.png)
-
-
-##### ============================================
-
-### Simulation based/Empirical Solutions 
-
-1) random parings; test for point in region
-
-
-2) random pairings; test for intersection 
-
-https://stackoverflow.com/questions/6270785/how-to-determine-whether-a-point-x-y-is-contained-within-an-arc-section-of-a-c
-
-
-
-
-```python
-
-```
-
-##### ============================
-### Limit of Distribution
-
-[paper](http://algo.inria.fr/flajolet/Publications/FlNo00.pdf)
-
-
-https://github.com/dingran/latex-ipynb/blob/master/latex-cheatsheet.ipynb
-
-https://www.cs.upc.edu/~conrado/docencia/udelar-course-2011.pdf
-
-
-```python
-
-```

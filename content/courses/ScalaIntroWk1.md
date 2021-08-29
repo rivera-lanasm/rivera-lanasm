@@ -1,6 +1,6 @@
 ---
-title: "Scala Intro Week 1"
-subtitle: ""
+title: "Scala Intro"
+subtitle: "Week 1"
 date: 2021-01-31T22:59:35-05:00
 draft: false
 ---
