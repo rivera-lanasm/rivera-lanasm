@@ -9,13 +9,6 @@ The following series of notes and related resources were compiled while taking M
 
 I plan to use these as a reference for myself, to review concepts and examples from the course in the future. Also plan to further elaborate on external links I include here. 
 
-- Week 1: 
-- Week 2: 
-- Week 3: 
-- Week 4: 
-- Week 5: 
-- Week 6: 
-
 ## Week 1 Outline: Getting Started + Functions & Evaluation
 
 ### Why Scala?

@@ -5,16 +5,6 @@ date: 2021-02-24T22:47:56-05:00
 draft: false
 ---
 
-The following series of notes and related resources were compiled while taking Martin Odersky's Coursera course, [Functional Programming Principles in Scala](https://www.coursera.org/learn/progfun1/home/welcome). 
-
-I plan to use these as a reference for myself, to review concepts and examples from the course in the future. Also plan to further elaborate on external links I include here. 
-
-- Week 1: 
-- Week 3: 
-- Week 4: 
-- Week 5: 
-- Week 6: 
-
 ## Week 2 Outline: Higher Order Functions
  
 ### Lecture 2.1: Higher-Order Functions:
