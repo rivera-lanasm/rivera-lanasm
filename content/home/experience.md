@@ -28,17 +28,19 @@ date_format = "Jan 2006"
   description = """
   
 * Sept 2019 to Aug. 2020, I was part of a research and learning group,
-investigating novel applications of data science to prove use cases for
-alternative data sets as part of the investment process.
-* In Sept. 2020, I joined an 8 person, $X billion investment team, where I
-manage all data science and engineering projects.
-* Implement statistical descriptive modeling, preprocessing, feature
-engineering, and forecasting over a diverse range of data sets related to oil
-well production, retail consumer trends, and other sectors.
-* Analyze sector exposure to risk factors, inter sector correlations, and build
+investigating use cases for using novel data sets, including 
+credit-cardtransaction panel data, website traffic, cell-phone 
+geolocation panels, and others for discovering trends related to 
+fundamental KPIs for companies.
+* In Sept. 2020, I joined an investment team with eight sector 
+analysts, where I manage all data science and engineering projects.
+* Implement statistical descriptive modeling, preprocessing, feature 
+engineering, and forecasting over a diverse range of data sets related to oil 
+well production, retail consumer trends, and othe rsectors.
+* Analyze sector exposure to risk factors, inter-sector correlations, and build 
 systematic strategy backtesting framework
-* Build scalable and robust cloud based event-driven ETL architecture for
-delivering continuous reporting of data products
+* Build scalable and robust cloud based event-driven 
+ETL architecture fordelivering continuous reporting of data product
 
 
   """
